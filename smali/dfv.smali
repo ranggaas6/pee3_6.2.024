@@ -68,15 +68,15 @@
 
     invoke-direct {v2}, Lcom/google/googlex/gcam/ViewfinderProcessingOptions;-><init>()V
 
-    invoke-static {v1}, Lddu;->a(Lcvm;)Z
+    #invoke-static {v1}, Lddu;->a(Lcvm;)Z
 
-    move-result v1
+    #move-result v1
 
-    if-eqz v1, :cond_0
+    #if-eqz v1, :cond_0
 
-    sget-object v1, Ldgi;->c:Ldgi;
+    #sget-object v1, Ldgi;->c:Ldgi;
 
-    if-ne v0, v1, :cond_0
+    #if-ne v0, v1, :cond_0
 
     const/4 v0, 0x1
 

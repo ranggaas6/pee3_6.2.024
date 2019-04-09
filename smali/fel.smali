@@ -1424,7 +1424,33 @@
 
     :cond_4
     nop
+	
+	sget-object v3, Landroid/os/Build;->DEVICE:Ljava/lang/String;
 
+    const-string v2, "sailfish"
+
+    invoke-virtual {v3, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v2
+
+    if-nez v2, :cond_100
+
+    sget-object v3, Landroid/os/Build;->DEVICE:Ljava/lang/String;
+
+    const-string v2, "marlin"
+
+    invoke-virtual {v3, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_101
+
+	:cond_100
+    const-string v3, "pref_use_pvc"
+
+    invoke-direct {p0, v3}, Lfel;->a(Ljava/lang/String;)V
+
+    :cond_101
     const-string v2, "pref_camera_recordlocation_key"
 
     invoke-virtual {p0, v2}, Lfel;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
@@ -2024,7 +2050,7 @@
 .end method
 
 .method public final onSharedPreferenceChanged(Landroid/content/SharedPreferences;Ljava/lang/String;)V
-    .locals 0
+    .locals 1
 
     const-string p1, "pref_video_quality_back_key"
 
@@ -2035,7 +2061,124 @@
     if-eqz p1, :cond_0
 
     invoke-direct {p0}, Lfel;->c()V
+	
+	:cond_0
+	const/4 v0, 0x1
 
-    :cond_0
+    sput-boolean v0, Lcom/google/android/apps/camera/legacy/app/settings/CameraSettingsActivity;->changed:Z
+
+    sget v0, Lcom/custom/extras;->sHdr_process:I
+
+    if-nez v0, :cond_3
+	
+	const-string v0, "pref_disable_align"
+
+    invoke-virtual {p2, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-nez v0, :cond_1
+	
+	const-string v0, "pref_use_gphotos"
+
+    invoke-virtual {p2, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-nez v0, :cond_1
+	
+	const-string v0, "pref_pzoom_key"
+
+    invoke-virtual {p2, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-nez v0, :cond_1
+	
+	const-string v0, "pref_always_sabre"
+
+    invoke-virtual {p2, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-nez v0, :cond_1
+	
+	const-string v0, "pref_use_pvc"
+
+    invoke-virtual {p2, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-nez v0, :cond_1
+	
+	const-string v0, "pref_enh_aiwb"
+
+    invoke-virtual {p2, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-nez v0, :cond_1
+	
+	const-string v0, "pref_sff_key"
+
+    invoke-virtual {p2, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-nez v0, :cond_1
+	
+	const-string v0, "pref_config_key"
+
+    invoke-virtual {p2, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-nez v0, :cond_1
+	
+	const-string v0, "pref_track_focus"
+
+    invoke-virtual {p2, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-nez v0, :cond_1
+	
+	const-string v0, "pref_photobooth"
+
+    invoke-virtual {p2, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-nez v0, :cond_1
+	
+	const-string v0, "pref_top_shot"
+
+    invoke-virtual {p2, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-nez v0, :cond_1
+
+    const-string v0, "pref_max_tripod"
+
+    invoke-virtual {p2, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_2
+	
+	:cond_1
+    const/4 v0, 0x1
+
+    sput-boolean v0, Lcom/google/android/apps/camera/legacy/app/settings/CameraSettingsActivity;->isrestart:Z
+
+    :cond_2
     return-void
+	
+	:cond_3
+	const-string v0, "HDR+ Processing. Force close app to update settings."
+
+    invoke-static {v0}, Lcom/custom/extras;->ShowToast(Ljava/lang/String;)V
+	
+	return-void
 .end method

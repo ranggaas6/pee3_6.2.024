@@ -357,11 +357,13 @@
     :cond_6
     iget-object v0, p0, Lfeu;->n:Lcbf;
 
-    sget-object v1, Lcbe;->e:Lcbh;
+    #sget-object v1, Lcbe;->e:Lcbh;
 
-    invoke-interface {v0, v1}, Lcbf;->b(Lcbh;)Z
+    #invoke-interface {v0, v1}, Lcbf;->b(Lcbh;)Z
 
-    move-result v0
+    #move-result v0
+	
+	const v0, 0x1	#enable hevc toggle
 
     if-nez v0, :cond_7
 
@@ -372,11 +374,13 @@
     invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     :cond_7
-    iget-object v0, p0, Lfeu;->k:Lgjr;
+    #iget-object v0, p0, Lfeu;->k:Lgjr;
 
-    invoke-interface {v0}, Lgjr;->d()Z
+    #invoke-interface {v0}, Lgjr;->d()Z
 
-    move-result v0
+    #move-result v0
+	
+	const v0, 0x1	#enable sound setting
 
     if-nez v0, :cond_8
 

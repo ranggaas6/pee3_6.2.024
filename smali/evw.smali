@@ -119,9 +119,9 @@
     return v0
 
     :cond_0
-    iget-object v0, p0, Levw;->f:Lcgc;
+	const-string v0, "pref_use_pvc"
 
-    invoke-virtual {v0}, Lcgc;->u()Z
+    invoke-static {v0}, Lcom/custom/extras;->MenuValue(Ljava/lang/String;)I
 
     move-result v0
 
@@ -131,7 +131,7 @@
 
 # virtual methods
 .method public final a(Lose;Lgnj;Leuz;Lgpq;Lhgp;Lcom/google/android/apps/camera/stats/timing/CameraDeviceTiming;)Lgjq;
-    .locals 5
+    .locals 6
 
     invoke-static {p1}, Loag;->b(Ljava/lang/Object;)Ljava/lang/Object;
 
@@ -180,9 +180,38 @@
     const-string v2, "persist.camera.cam_component"
 
     const/4 v3, 0x1
+	
+	const-string v5, "pref_config_key"
 
-    if-eqz p6, :cond_0
+    invoke-static {v5}, Lcom/custom/extras;->MenuValue(Ljava/lang/String;)I
 
+    move-result v5
+	
+	if-eqz v5, :cond_p3
+	
+	const v4, 0x1
+	
+	if-eq v5, v4, :cond_p1
+	
+	const v4, 0x2
+	
+	if-eq v5, v4, :cond_p2
+	
+	const v4, 0x3
+	
+	if-eq v5, v4, :cond_p3a
+	
+	const v4, 0x7
+	
+	if-eq v5, v4, :cond_ntun
+	
+	const v4, 0x8
+	
+	if-eq v5, v4, :cond_exp
+
+    #if-eqz p6, :cond_0
+
+	:cond_ntun
     iget-object p6, p0, Levw;->a:Lgpg;
 
     const-string v4, "nexus2016_tuning"
@@ -191,13 +220,13 @@
 
     move-result p6
 
-    if-eqz p6, :cond_0
+    #if-eqz p6, :cond_0
 
     iget-object p5, p0, Levw;->e:Lcgx;
 
     const-string p6, "EXPERIMENTAL CONFIG: Pixel2016 Tuning"
 
-    invoke-virtual {p5, p6, v3}, Lcgx;->a(Ljava/lang/String;I)V
+    #invoke-virtual {p5, p6, v3}, Lcgx;->a(Ljava/lang/String;I)V
 
     sget-object p5, Levw;->b:Ljava/lang/String;
 
@@ -236,6 +265,7 @@
     return-object p1
 
     :cond_0
+	:cond_exp
     iget-object p6, p0, Levw;->a:Lgpg;
 
     const-string v4, "experimental_features"
@@ -244,13 +274,13 @@
 
     move-result p6
 
-    if-eqz p6, :cond_1
+    #if-eqz p6, :cond_1
 
     iget-object p5, p0, Levw;->e:Lcgx;
 
     const-string p6, "EXPERIMENTAL CONFIG: Experimental Features (Pixel)"
 
-    invoke-virtual {p5, p6, v3}, Lcgx;->a(Ljava/lang/String;I)V
+    #invoke-virtual {p5, p6, v3}, Lcgx;->a(Ljava/lang/String;I)V
 
     sget-object p5, Levw;->b:Ljava/lang/String;
 
@@ -299,6 +329,7 @@
 
     if-eqz p6, :cond_2
 
+	:cond_p1
     sget-object p5, Levw;->b:Ljava/lang/String;
 
     const-string p6, "Selected Pixel 2016 Zsl Hdr OneCamera configuration."
@@ -320,15 +351,16 @@
     return-object p1
 
     :cond_2
+	:cond_p2
     iget-object p6, p0, Levw;->d:Lkbn;
 
     iget-object p6, p6, Lkbn;->a:Lmhz;
 
-    invoke-virtual {p6}, Lmhz;->c()Z
+    #invoke-virtual {p6}, Lmhz;->c()Z
 
-    move-result p6
+    #move-result p6
 
-    if-eqz p6, :cond_4
+    #if-eqz p6, :cond_4
 
     invoke-interface {p2}, Lgnj;->x()Z
 
@@ -406,11 +438,11 @@
 
     iget-object p6, p6, Lkbn;->a:Lmhz;
 
-    invoke-virtual {p6}, Lmhz;->c()Z
+    #invoke-virtual {p6}, Lmhz;->c()Z
 
-    move-result p6
+    #move-result p6
 
-    if-eqz p6, :cond_7
+    #if-eqz p6, :cond_7
 
     invoke-interface {p2}, Lgnj;->x()Z
 
@@ -437,7 +469,7 @@
 
     move-result p6
 
-    if-eqz p6, :cond_7
+    #if-eqz p6, :cond_7
 
     sget-object p6, Lgpr;->b:Lgpr;
 
@@ -468,16 +500,17 @@
     return-object p1
 
     :cond_7
+	:cond_p3
     :goto_1
     iget-object p6, p0, Levw;->d:Lkbn;
 
     iget-object p6, p6, Lkbn;->a:Lmhz;
 
-    invoke-virtual {p6}, Lmhz;->d()Z
+    #invoke-virtual {p6}, Lmhz;->d()Z
 
-    move-result p6
+    #move-result p6
 
-    if-eqz p6, :cond_8
+    #if-eqz p6, :cond_8
 
     invoke-interface {p2}, Lgnj;->x()Z
 
@@ -524,11 +557,11 @@
 
     iget-object p6, p6, Lkbn;->a:Lmhz;
 
-    invoke-virtual {p6}, Lmhz;->d()Z
+    #invoke-virtual {p6}, Lmhz;->d()Z
 
-    move-result p6
+    #move-result p6
 
-    if-eqz p6, :cond_c
+    #if-eqz p6, :cond_c
 
     invoke-interface {p2}, Lgnj;->x()Z
 
@@ -555,7 +588,7 @@
 
     move-result p6
 
-    if-eqz p6, :cond_c
+    #if-eqz p6, :cond_c
 
     invoke-static {p4, p2}, Levw;->a(Lgpq;Lgnj;)Lgww;
 
@@ -603,16 +636,17 @@
     return-object p1
 
     :cond_c
+	:cond_p3a
     :goto_3
     iget-object p6, p0, Levw;->d:Lkbn;
 
     iget-object p6, p6, Lkbn;->a:Lmhz;
 
-    invoke-virtual {p6}, Lmhz;->e()Z
+    #invoke-virtual {p6}, Lmhz;->e()Z
 
-    move-result p6
+    #move-result p6
 
-    if-eqz p6, :cond_d
+    #if-eqz p6, :cond_d
 
     invoke-interface {p2}, Lgnj;->x()Z
 
@@ -659,11 +693,11 @@
 
     iget-object p5, p5, Lkbn;->a:Lmhz;
 
-    invoke-virtual {p5}, Lmhz;->e()Z
+    #invoke-virtual {p5}, Lmhz;->e()Z
 
-    move-result p5
+    #move-result p5
 
-    if-eqz p5, :cond_11
+    #if-eqz p5, :cond_11
 
     invoke-interface {p2}, Lgnj;->x()Z
 
@@ -690,7 +724,7 @@
 
     move-result p5
 
-    if-eqz p5, :cond_11
+    #if-eqz p5, :cond_11
 
     invoke-static {p4, p2}, Levw;->a(Lgpq;Lgnj;)Lgww;
 

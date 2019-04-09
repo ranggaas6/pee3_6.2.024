@@ -91,7 +91,7 @@
     goto :goto_0
 
     :cond_0
-    const/4 p0, 0x0
+    const/4 p0, 0x0	#enable cheetah button
 
     return p0
 

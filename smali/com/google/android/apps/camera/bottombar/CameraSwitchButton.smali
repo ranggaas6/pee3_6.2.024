@@ -140,6 +140,8 @@
     invoke-direct {v0, p0}, Lcom/google/android/apps/camera/bottombar/CameraSwitchButton$$Lambda$0;-><init>(Lcom/google/android/apps/camera/bottombar/CameraSwitchButton;)V
 
     invoke-super {p0, v0}, Landroid/widget/ImageButton;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+	
+	invoke-static {p0}, Lcom/custom/switch;->setLongClickListener(Landroid/view/View;)V
 
     const/4 v0, 0x0
 

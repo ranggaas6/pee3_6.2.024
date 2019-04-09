@@ -520,6 +520,22 @@
     move-result v1
 
     if-nez v1, :cond_2
+	
+	const-string v1, "android.media.action.PORTRAIT"
+
+    invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-nez v1, :cond_100
+	
+	const-string v1, "android.media.action.NIGHTSIGHT"
+
+    invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-nez v1, :cond_101
 
     const-string v1, "android.media.action.IMAGE_CAPTURE_SECURE"
 
@@ -548,6 +564,16 @@
 
     :cond_3
     sget-object v0, Lkac;->j:Lkac;
+
+    goto :goto_2
+	
+	:cond_100
+    sget-object v0, Lkac;->h:Lkac;	#portrait mode
+
+    goto :goto_2
+	
+	:cond_101
+    sget-object v0, Lkac;->n:Lkac;	#night sight
 
     goto :goto_2
 

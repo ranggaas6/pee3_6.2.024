@@ -147,9 +147,9 @@
 
     invoke-virtual {v2, p1}, Lcom/google/googlex/gcam/InitParams;->setThread_count(I)V
 
-    sget-object p1, Lcba;->a:Lcba;
+    #sget-object p1, Lcba;->a:Lcba;
 
-    if-ne p4, p1, :cond_1
+    #if-ne p4, p1, :cond_1
 
     const/4 p1, 0x1
 

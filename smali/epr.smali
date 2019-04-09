@@ -841,8 +841,8 @@
     return-void
 .end method
 
-.method final g()V
-    .locals 4
+.method public final g()V
+    .locals 6
 
     iget-object v0, p0, Lepr;->b:Lcav;
 
@@ -888,13 +888,35 @@
     move-result v1
 
     iget-object v2, p0, Lepr;->b:Lcav;
+	
+	const-string v4, "pref_pzoom_key"
+
+    invoke-static {v4}, Lcom/custom/extras;->MenuValue(Ljava/lang/String;)I
+
+    move-result v4
+	
+	sput v4, Lfhe;->ZoomSelect:I
 
     invoke-virtual {v2}, Lcav;->a()Z
 
     move-result v2
+	
+	sput v2, Lfhe;->lens:I	#pixel 2016 gallery and portrait zoom fix
 
     if-eqz v2, :cond_2
 
+    .line 137	
+	if-eqz v4, :cond_101
+	
+	const v2, 0x1
+	
+	if-eq v4, v2, :cond_102
+	
+	const v2, 0x2
+	
+	if-eq v4, v2, :cond_1
+	
+	:cond_100
     iget-object v0, p0, Lepr;->U:Lkbn;
 
     iget-object v0, v0, Lkbn;->a:Lmhz;
@@ -904,8 +926,14 @@
     move-result v0
 
     if-nez v0, :cond_1
-
+	
+	:cond_101
     const/high16 v0, 0x3fc00000    # 1.5f
+
+    goto :goto_0
+	
+	:cond_102
+    const/high16 v0, 0x3f800000    # 1.0f
 
     goto :goto_0
 
@@ -927,12 +955,16 @@
 
     goto :goto_2
 
-    :cond_2
+    :cond_2	
     invoke-interface {v0}, Lgnj;->y()Z
 
     move-result v0
 
     if-nez v0, :cond_3
+	
+	const v5, 0x1
+	
+	if-eq v4, v5, :cond_3
 
     const v2, 0x3f99999a    # 1.2f
 

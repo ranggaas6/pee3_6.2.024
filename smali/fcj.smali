@@ -63,9 +63,9 @@
 
     if-eqz p0, :cond_0
 
-    sget-object p0, Lhgt;->b:Lhgt;
+    #sget-object p0, Lhgt;->b:Lhgt;
 
-    invoke-virtual {v0, p1, p0}, Lblb;->a(Lllr;Ljava/lang/Object;)V
+    #invoke-virtual {v0, p1, p0}, Lblb;->a(Lllr;Ljava/lang/Object;)V	#HDR+ for Pixel 1 reset
 
     :cond_0
     return-object v0
@@ -1047,6 +1047,24 @@
 .method public static z(Lito;)Lllr;
     .locals 2
 
+	const-string v0, "pref_photobooth"
+
+    const/4 v1, 0x1
+
+    invoke-virtual {p0, v0, v1}, Lito;->a(Ljava/lang/String;Z)Lllr;
+	
+	const-string v0, "pref_top_shot"
+
+    const/4 v1, 0x1
+
+    invoke-virtual {p0, v0, v1}, Lito;->a(Ljava/lang/String;Z)Lllr;
+	
+	const-string v0, "pref_enh_aiwb"
+
+    const/4 v1, 0x1
+
+    invoke-virtual {p0, v0, v1}, Lito;->a(Ljava/lang/String;Z)Lllr;
+	
     const-string v0, "pref_camera_enable_iris"
 
     const/4 v1, 0x1

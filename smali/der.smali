@@ -14,6 +14,7 @@
 
 .field private static final c:Z
 
+.field public static fixWideAngle:I
 
 # instance fields
 .field public final a:Lcom/google/googlex/gcam/hdrplus/MetadataConverter;
@@ -88,10 +89,8 @@
 
     iget-object v0, p3, Lkbn;->a:Lmhz;
 
-    invoke-virtual {v0}, Lmhz;->d()Z
-
-    move-result v0
-
+    sget v0, Lder;->fixWideAngle:I
+	
     if-nez v0, :cond_1
 
     iget-object v0, p3, Lkbn;->a:Lmhz;
@@ -235,9 +234,7 @@
 
     iget-object v3, v3, Lkbn;->a:Lmhz;
 
-    invoke-virtual {v3}, Lmhz;->d()Z
-
-    move-result v3
+    sget v3, Lder;->fixWideAngle:I
 
     if-eqz v3, :cond_4
 
@@ -658,7 +655,7 @@
     invoke-virtual {p1}, Lcom/google/googlex/gcam/FrameRequest;->getDesired_exposure_time_ms()F
 
     move-result v0
-
+	
     invoke-virtual {p1}, Lcom/google/googlex/gcam/FrameRequest;->getDesired_analog_gain()F
 
     move-result v1

@@ -34,6 +34,11 @@
 
     check-cast v0, Lkbn;
 
+	
+    sget v1, Lcbc;->sd845:I		#Pixel 2 portrait crash fix
+
+    if-eqz v1, :cond_100
+	
     iget-object v1, v0, Lkbn;->a:Lmhz;
 
     invoke-virtual {v1}, Lmhz;->d()Z
@@ -52,6 +57,7 @@
 
     if-nez v0, :cond_0
 
+	:cond_100
     const/16 v2, 0x101
 
     goto :goto_0

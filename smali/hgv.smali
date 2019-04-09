@@ -51,6 +51,8 @@
     invoke-virtual {v2}, Lmhz;->d()Z
 
     move-result v2
+	
+	#const v2, 0x1	#0 fixes beauty mode on Pixel 2 but breaks synthetic fill flash - which doesnt work great all the time anyway
 
     if-nez v2, :cond_1
 
@@ -77,11 +79,74 @@
 
     :cond_1
     :goto_0
-    sget-object v0, Lmfi;->a:Lmfi;
+	const-string v0, "pref_sff_key"
+
+    invoke-static {v0}, Lcom/custom/extras;->MenuValue(Ljava/lang/String;)I
+
+    move-result v0
+	
+	if-eqz v0, :cond_200
+	
+	const v1, 0x1
+	
+	if-eq v0, v1, :cond_a
+	
+	const v1, 0x2
+	
+	if-eq v0, v1, :cond_b
+	
+	const v1, 0x3
+	
+	if-eq v0, v1, :cond_c
+	
+	const v1, 0x4
+	
+	if-eq v0, v1, :cond_d
+	
+	:cond_200
+	sget v0, Lcbc;->sd821:I
+
+    if-nez v0, :cond_c
+	
+	sget v0, Lcbc;->sd835:I
+
+    if-nez v0, :cond_b
+	
+	:cond_a
+    sget-object v0, Lmfi;->a:Lmfi;	#b:Lmfi and c:Lmfi work on the Pixel 2 to provide Synthetic Fill Flash a=EXTENDED b=FULL c=SIMPLE d=NONE
 
     invoke-static {v0}, Llky;->a(Ljava/lang/Object;)Llkx;
 
     move-result-object v0
+	
+	goto :goto_1
+	
+	:cond_c
+	sget-object v0, Lmfi;->c:Lmfi;
+
+    invoke-static {v0}, Llky;->a(Ljava/lang/Object;)Llkx;
+
+    move-result-object v0
+	
+	goto :goto_1
+	
+	:cond_b
+	sget-object v0, Lmfi;->b:Lmfi;
+
+    invoke-static {v0}, Llky;->a(Ljava/lang/Object;)Llkx;
+
+    move-result-object v0
+	
+	goto :goto_1
+	
+	:cond_d
+	sget-object v0, Lmfi;->d:Lmfi;
+
+    invoke-static {v0}, Llky;->a(Ljava/lang/Object;)Llkx;
+
+    move-result-object v0
+	
+	goto :goto_1
 
     :goto_1
     nop

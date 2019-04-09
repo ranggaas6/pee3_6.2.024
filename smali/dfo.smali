@@ -669,7 +669,7 @@
 
     invoke-virtual {v12, v15}, Lcom/google/googlex/gcam/ShotParams;->setManually_rotate_final_jpg(Z)V
 
-    invoke-virtual {v12, v6}, Lcom/google/googlex/gcam/ShotParams;->setSave_merged_dng(Z)V
+    invoke-virtual {v12, v15}, Lcom/google/googlex/gcam/ShotParams;->setSave_merged_dng(Z)V
 
     invoke-virtual {v12, v15}, Lcom/google/googlex/gcam/ShotParams;->setCompress_merged_dng(Z)V
 
@@ -742,11 +742,13 @@
     iget-object v4, v0, Ldfo;->f:Lkbn;
 
     iget-object v4, v4, Lkbn;->a:Lmhz;
+	
+	const-string v4, "pref_enh_aiwb"	#enables AI AWB for HDR Enhanced
 
-    invoke-virtual {v4}, Lmhz;->d()Z
+    invoke-static {v4}, Lcom/custom/extras;->MenuValue(Ljava/lang/String;)I
 
     move-result v4
-
+	
     if-nez v4, :cond_4
 
     iget-object v4, v0, Ldfo;->f:Lkbn;
@@ -818,6 +820,14 @@
     const/4 v6, 0x0
 
     :goto_1
+	const-string v7, "pref_always_sabre"
+
+    invoke-static {v7}, Lcom/custom/extras;->MenuValue(Ljava/lang/String;)I
+
+    move-result v7
+	
+	if-nez v7, :cond_200
+	
     iget-object v7, v0, Ldfo;->f:Lkbn;
 
     invoke-static {v7}, Lddu;->a(Lkbn;)Z
@@ -838,6 +848,7 @@
 
     if-ltz v4, :cond_7
 
+	:cond_200
     const/4 v4, 0x1
 
     goto :goto_2
@@ -969,9 +980,9 @@
     invoke-virtual {v12, v15}, Lcom/google/googlex/gcam/ShotParams;->setMerge_method_override(I)V
 
     :cond_d
-    iget-object v4, v0, Ldfo;->s:Lcvm;
+	const-string v4, "pref_max_tripod"
 
-    invoke-static {v4}, Lddu;->b(Lcvm;)Z
+    invoke-static {v4}, Lcom/custom/extras;->MenuValue(Ljava/lang/String;)I
 
     move-result v4
 

@@ -145,16 +145,56 @@
         <item>4BA713DFECE93D47572DC5E845A7A82C4A891F2F</item>
         <item>24BB24C05E47E0AEFA68A58A766179D9B613A600</item>
     </string-array>
-    <item type="array" name="APKTOOL_DUMMY_6">false</item>
-    <item type="array" name="APKTOOL_DUMMY_7">false</item>
-    <item type="array" name="APKTOOL_DUMMY_9">false</item>
-    <item type="array" name="APKTOOL_DUMMY_18">false</item>
-    <item type="array" name="APKTOOL_DUMMY_19">false</item>
-    <item type="array" name="APKTOOL_DUMMY_1a">false</item>
-    <item type="array" name="APKTOOL_DUMMY_1b">false</item>
-    <item type="array" name="APKTOOL_DUMMY_1d">false</item>
-    <item type="array" name="APKTOOL_DUMMY_1e">false</item>
-    <item type="array" name="APKTOOL_DUMMY_22">false</item>
-    <item type="array" name="APKTOOL_DUMMY_23">false</item>
-    <item type="array" name="APKTOOL_DUMMY_24">false</item>
+	<string-array name="pref_hdr_config_entries">
+        <item>"Auto"</item>
+        <item>@string/volume_key_zoom</item>
+        <item>@string/volume_key_volume</item>
+        <item>@string/volume_key_off</item>
+    </string-array>
+    <string-array name="pref_hdr_config_entryvalues">
+        <item>@string/preference_volume_key_shutter</item>
+        <item>@string/preference_volume_key_zoom</item>
+        <item>@string/preference_volume_key_volume</item>
+        <item>@string/preference_volume_key_off</item>
+    </string-array>
+	<string-array name="pref_pzoom_entries">
+        <item>"Off"</item>
+        <item>"Pixel 2 &amp; 3 Default"</item>
+        <item>"Pixel 3a Default"</item>
+    </string-array>
+    <string-array name="pref_pzoom_entryvalues">
+        <item>1</item>
+        <item>0</item>
+        <item>2</item>
+    </string-array>
+	<string-array name="pref_config_entries">
+        <item>"Pixel 1 Default"</item>
+        <item>"Pixel 2 Default"</item>
+		<item>"Pixel 3 Default"</item>
+		<item>"Pixel 3a Default"</item>
+		<item>"Nexus 2016 Tuning (EXPERIMENTAL)"</item>
+		<item>"Pixel Experimental Features (EXPERIMENTAL)"</item>
+    </string-array>
+    <string-array name="pref_config_entryvalues">
+        <item>1</item>
+        <item>2</item>
+        <item>0</item>
+        <item>3</item>
+        <item>7</item>
+        <item>8</item>
+    </string-array>
+		<string-array name="pref_sff_entries">
+        <item>"Auto"</item>
+        <item>"Extended (Pixel 3 default)"</item>
+        <item>"Full"</item>
+		<item>"Simple"</item>
+		<item>"None"</item>
+    </string-array>
+    <string-array name="pref_sff_entryvalues">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+		<item>3</item>
+		<item>4</item>
+    </string-array>
 </resources>

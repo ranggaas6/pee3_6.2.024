@@ -44,9 +44,15 @@
 
     check-cast v0, Lcbf;
 
-    sget-object v1, Lcbn;->b:Lcbk;
+    #sget-object v1, Lcbn;->b:Lcbk;
 
-    invoke-interface {v0, v1}, Lcbf;->b(Lcbk;)Z
+    #invoke-interface {v0, v1}, Lcbf;->b(Lcbk;)Z
+
+    #move-result v0
+	
+	const-string v0, "pref_track_focus"	#focus tracking
+
+    invoke-static {v0}, Lcom/custom/extras;->MenuValue(Ljava/lang/String;)I
 
     move-result v0
 

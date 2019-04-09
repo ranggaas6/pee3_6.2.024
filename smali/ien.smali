@@ -160,11 +160,13 @@
     if-nez v0, :cond_2
 
     :goto_0
-    iget-object v0, p0, Lkbn;->a:Lmhz;
+    #iget-object v0, p0, Lkbn;->a:Lmhz;
 
-    invoke-virtual {v0}, Lmhz;->d()Z
+    #invoke-virtual {v0}, Lmhz;->d()Z
 
-    move-result v0
+    #move-result v0
+	
+	const v0, 0x1	#adds Portrait button
 
     if-nez v0, :cond_2
 

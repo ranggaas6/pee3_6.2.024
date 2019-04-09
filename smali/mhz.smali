@@ -322,7 +322,7 @@
     sget-object v0, Landroid/os/Build;->MANUFACTURER:Ljava/lang/String;
 
     sget-object v1, Landroid/os/Build;->DEVICE:Ljava/lang/String;
-
+		
     sget-object v2, Landroid/os/Build;->FINGERPRINT:Ljava/lang/String;
 
     invoke-static {v0}, Lmhz;->a(Ljava/lang/String;)Ljava/lang/String;
@@ -503,6 +503,8 @@
 
 .method public final d()Z
     .locals 1
+	
+	const-string v0, "this is true if Pixel 3 or 3 XL"
 
     iget-boolean v0, p0, Lmhz;->e:Z
 
@@ -528,6 +530,8 @@
 
 .method public final e()Z
     .locals 1
+	
+	const-string v0, "this is true if Pixel 3a or 3a XL - the Lite models"
 
     iget-boolean v0, p0, Lmhz;->m:Z
 

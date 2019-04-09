@@ -159,6 +159,8 @@
     invoke-virtual {v0}, Lmhz;->d()Z
 
     move-result v0
+	
+	const v0, 0x1	#related to Night Sight focus button
 
     if-nez v0, :cond_1
 
@@ -192,6 +194,8 @@
     invoke-virtual {v0}, Lmhz;->d()Z
 
     move-result v0
+	
+	const v0, 0x1	#related to Night Sight focus button
 
     if-nez v0, :cond_1
 

@@ -79,9 +79,15 @@
 
     iget-object v0, p0, Lhrb;->b:Lkbn;
 
-    iget-object v0, v0, Lkbn;->a:Lmhz;
+    #iget-object v0, v0, Lkbn;->a:Lmhz;
 
-    invoke-virtual {v0}, Lmhz;->d()Z
+    #invoke-virtual {v0}, Lmhz;->d()Z
+
+    #move-result v0
+	
+	const-string v0, "pref_photobooth"	#enable photobooth
+
+    invoke-static {v0}, Lcom/custom/extras;->MenuValue(Ljava/lang/String;)I
 
     move-result v0
 
